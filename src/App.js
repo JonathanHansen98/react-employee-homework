@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container, Grid, Typography, Box } from "@material-ui/core";
+import Header from "./Components/Header/Header";
+import DFImg from "./img/download.jpg";
+import ListCard from "./Components/ListCard/ListCard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header src={DFImg} />
+      <Container>
+        <Box mt={5}>
+          <Grid container>
+            <Grid item sm={6}>
+              <Box>
+                <Typography align="center" variant="h2">
+                  {" "}
+                  Dunder Mifflin Employee Directory{" "}
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item sm={6}>
+              <ListCard />
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
     </div>
   );
 }
