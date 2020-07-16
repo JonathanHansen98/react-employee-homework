@@ -4,7 +4,9 @@ import { Grid, Avatar, Box } from "@material-ui/core";
 const CharacterCard = ({ name, position, depart, salary }) => {
   return (
     <Box py={1}>
-      <Grid align="center" justify="center" container>
+      <Grid style={{
+        borderBottom: '1px solid #ccc'
+      }} align="center" justify="center" container>
         <Grid align="center" item xs>
           <Box display="flex" height="100%" alignItems="center">
             <Avatar
@@ -13,16 +15,28 @@ const CharacterCard = ({ name, position, depart, salary }) => {
             />
           </Box>
         </Grid>
-        <Grid item xs>
+        <Grid style={{
+          borderLeft: '1px solid #ccc'
+        }} item xs>
+          
           {name}
         </Grid>
-        <Grid item xs>
+        <Grid style={{
+          borderLeft: '1px solid #ccc'
+        }} item xs>
+          
           {depart}
         </Grid>
-        <Grid item xs>
+        <Grid style={{
+          borderLeft: '1px solid #ccc'
+        }} item xs>
+          
           {position}
         </Grid>
-        <Grid item xs>
+        <Grid style={{
+          borderLeft: '1px solid #ccc'
+        }} item xs>
+          
           ${salary}
         </Grid>
       </Grid>

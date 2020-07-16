@@ -12,16 +12,20 @@ import { charArr, variants, fields } from "../../assets/chars";
 import { motion } from "framer-motion";
 
 class ListCard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      characters: charArr,
-      charArr: charArr
+      characters: [],
     };
+    this.charArr = charArr;
+  }
+
+  componentDidMount() {
+    this.setState({ characters: this.charArr });
   }
 
   handleSearchUpdate = (e) => {
-    let filteredChars = this.state.characters.filter((char) => {
+    let filteredChars = this.charArr.filter((char) => {
       return char.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
     this.setState({ characters: filteredChars });
@@ -40,26 +44,32 @@ class ListCard extends Component {
   };
 
   handleSort = (e) => {
-    let sortedArr = this.state.characters.sort(this.compareProps(e.target.id));
-    this.setState({ characters: sortedArr });
+    const targetId = e.target.id;
+    this.setState((state) => {
+      let sortedArr = state.characters.sort(this.compareProps(targetId));
+      return { characters: sortedArr };
+    });
   };
 
   handleReset = () => {
-    this.setState({characters: this.state.charArr})
-  }
+    console.log(charArr);
+    this.setState({ characters: charArr });
+    this.forceUpdate();
+  };
 
   render() {
-    console.log(this.state.charArr)
     return (
       <Paper>
         <Grid container>
           <Grid item xs={12}>
             <Box>
-              <Typography align='center' variant="h2">Current Employees:</Typography>
+              <Typography align="center" variant="h3">
+                Current Employees:
+              </Typography>
             </Box>
           </Grid>
 
-          <Grid container>
+          <Grid item>
             <Box display="inline" width="100%" p={1} my={3}>
               <TextField
                 fullWidth
@@ -74,7 +84,7 @@ class ListCard extends Component {
             <Box mb={3} p={1}>
               <Paper>
                 <Grid align="center" container>
-                  <Box px={1} display='flex' alignItems="center">
+                  <Box px={1} display="flex" alignItems="center">
                     <Grid item xs>
                       <Button onClick={this.handleReset}>Reset</Button>
                     </Grid>
@@ -83,6 +93,10 @@ class ListCard extends Component {
                     return (
                       <Grid key={i} item xs>
                         <p
+                          style={{
+                            fontWeight: "bold",
+                            borderLeft: "solid 1px #ccc",
+                          }}
                           onClick={this.handleSort}
                           key={field.id}
                           id={field.id}
@@ -97,34 +111,43 @@ class ListCard extends Component {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Paper>
-              <Box p={1}>
-                {this.state.characters.map((char, i) => {
-                  return (
-                    <motion.div
-                      key={i}
-                      variants={variants}
-                      initial="closed"
-                      animate="open"
-                      transition={{
-                        delay: i * 0.125,
-                        type: "spring",
-                        damping: 15,
-                        ease: [0.445, 0.05, 0.55, 0.95],
-                      }}
-                    >
-                      <CharCard
-                        key={char._id}
-                        name={char.name}
-                        position={char.position}
-                        depart={char.department}
-                        salary={char.salary}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </Box>
-            </Paper>
+            <Box p={1}>
+              <Paper
+                style={{
+                  maxHeight: "500px",
+                  overflowY: "auto",
+                  overflowX: "hidden",
+                }}
+                className="listCard"
+              >
+                <Box p={1}>
+                  {this.state.characters.map((char, i) => {
+                    return (
+                      <motion.div
+                        key={i}
+                        variants={variants}
+                        initial="closed"
+                        animate="open"
+                        transition={{
+                          delay: i * 0.125,
+                          type: "spring",
+                          damping: 15,
+                          ease: [0.445, 0.05, 0.55, 0.95],
+                        }}
+                      >
+                        <CharCard
+                          key={char._id}
+                          name={char.name}
+                          position={char.position}
+                          depart={char.department}
+                          salary={char.salary}
+                        />
+                      </motion.div>
+                    );
+                  })}
+                </Box>
+              </Paper>
+            </Box>
           </Grid>
         </Grid>
       </Paper>

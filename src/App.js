@@ -11,16 +11,19 @@ function App() {
       <Container>
         <Box mt={5}>
           <Grid container>
-            <Grid item sm={6}>
+            <Grid item sm={12}>
               <Box>
-                <Typography align="center" variant="h2">
-                  {" "}
-                  Dunder Mifflin Employee Directory{" "}
+                <Typography style={{
+                            fontWeight: '500'
+                          }} align="center" variant="h2">
+                  Dunder Mifflin Employee Directory
                 </Typography>
               </Box>
             </Grid>
-            <Grid item sm={6}>
-              <ListCard />
+            <Grid item sm={12}>
+              <Box my={5}>
+                <ListCard />
+              </Box>
             </Grid>
           </Grid>
         </Box>
