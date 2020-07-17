@@ -10,25 +10,33 @@ import {
 import CharCard from "../CharacterCard/CharacterCard";
 import { charArr, variants, fields } from "../../assets/chars";
 import { motion } from "framer-motion";
+import SearchBar from '../SearchBar/SearchBar'
 
 class ListCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       characters: [],
+      search: ""
     };
     this.charArr = charArr;
   }
-
   componentDidMount() {
-    this.setState({ characters: this.charArr });
+    this.setState({characters: this.charArr})
+    console.log('On Mount: ', this.charArr);
+  }
+
+  componentDidUpdate() {
+  
+    console.log('On Updated:', this.charArr )
   }
 
   handleSearchUpdate = (e) => {
+    e.preventDefault()
     let filteredChars = this.charArr.filter((char) => {
       return char.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
-    this.setState({ characters: filteredChars });
+    this.setState({characters: filteredChars})
   };
 
   compareProps = (key) => {
@@ -44,17 +52,22 @@ class ListCard extends Component {
   };
 
   handleSort = (e) => {
+    e.preventDefault()
+    console.log('On sort before setState/Sort:', charArr);
     const targetId = e.target.id;
-    this.setState((state) => {
-      let sortedArr = state.characters.sort(this.compareProps(targetId));
-      return { characters: sortedArr };
-    });
+    // this.setState((state) => {
+    //   console.log('On sort function: ', this.charArr);
+    //   let sortedArr = state.characters.sort(this.compareProps(targetId));
+    //   return { characters: sortedArr };
+    // });
+    let sortedArr = this.state.characters.sort(this.compareProps(targetId));
+
+    this.setState({characters: sortedArr})
   };
 
   handleReset = () => {
-    console.log(charArr);
-    this.setState({ characters: charArr });
-    this.forceUpdate();
+    console.log('On Reset: ', this.charArr);
+    this.setState({ characters: this.charArr });
   };
 
   render() {
@@ -70,15 +83,7 @@ class ListCard extends Component {
           </Grid>
 
           <Grid item>
-            <Box display="inline" width="100%" p={1} my={3}>
-              <TextField
-                fullWidth
-                onChange={this.handleSearchUpdate}
-                id="filled-basic"
-                variant="filled"
-                label="Search:"
-              />
-            </Box>
+            <SearchBar handleSearch={this.handleSearchUpdate} />
           </Grid>
           <Grid item xs={12}>
             <Box mb={3} p={1}>
