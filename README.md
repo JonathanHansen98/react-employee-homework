@@ -37,7 +37,3 @@ Fork this repo, install the required dependancies:
  
 <img src="https://avatars.githubusercontent.com/u/58758929?" width="200" height="200" />
 <hr>
-
-
-## License
-
