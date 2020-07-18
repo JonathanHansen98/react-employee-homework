@@ -1,42 +1,33 @@
 import React, { Component } from "react";
-import {
-  Paper,
-  Grid,
-  Typography,
-  Box,
-  TextField,
-  Button,
-} from "@material-ui/core";
+import { Paper, Grid, Typography, Box, Button } from "@material-ui/core";
 import CharCard from "../CharacterCard/CharacterCard";
-import { charArr, variants, fields } from "../../assets/chars";
+import { charArr, variants, fields } from "./ListCardAssets";
 import { motion } from "framer-motion";
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBar from "../SearchBar/SearchBar";
 
 class ListCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       characters: [],
-      search: ""
+      search: "",
     };
     this.charArr = charArr;
   }
   componentDidMount() {
-    this.setState({characters: this.charArr})
-    console.log('On Mount: ', this.charArr);
+    this.setState({ characters: charArr });
+    console.log("On Mount: ", charArr);
   }
 
   componentDidUpdate() {
-  
-    console.log('On Updated:', this.charArr )
+    console.log("On Updated:", charArr);
   }
 
   handleSearchUpdate = (e) => {
-    e.preventDefault()
     let filteredChars = this.charArr.filter((char) => {
       return char.name.toLowerCase().startsWith(e.target.value.toLowerCase());
     });
-    this.setState({characters: filteredChars})
+    this.setState({ characters: filteredChars });
   };
 
   compareProps = (key) => {
@@ -52,22 +43,21 @@ class ListCard extends Component {
   };
 
   handleSort = (e) => {
-    e.preventDefault()
-    console.log('On sort before setState/Sort:', charArr);
+    console.log("On sort func before setState/Sort:", charArr);
     const targetId = e.target.id;
     // this.setState((state) => {
     //   console.log('On sort function: ', this.charArr);
     //   let sortedArr = state.characters.sort(this.compareProps(targetId));
     //   return { characters: sortedArr };
     // });
-    let sortedArr = this.state.characters.sort(this.compareProps(targetId));
+    let sortedArr = this.state.characters.slice().sort(this.compareProps(targetId));
 
-    this.setState({characters: sortedArr})
+    this.setState({ characters: sortedArr });
   };
 
   handleReset = () => {
-    console.log('On Reset: ', this.charArr);
-    this.setState({ characters: this.charArr });
+    console.log("On Reset: ", charArr);
+    this.setState({ characters: charArr });
   };
 
   render() {
