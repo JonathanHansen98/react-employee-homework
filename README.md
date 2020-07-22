@@ -13,7 +13,7 @@ A mock employee directory built using react that allows users to sort and filter
 <hr>
 
 ## Installation
-Fork this repo, install the required dependancies:
+Clone this repo, install the required dependancies:
 
  ```bash
  npm i
