@@ -16,11 +16,6 @@ class ListCard extends Component {
   }
   componentDidMount() {
     this.setState({ characters: charArr });
-    console.log("On Mount: ", charArr);
-  }
-
-  componentDidUpdate() {
-    console.log("On Updated:", charArr);
   }
 
   handleSearchUpdate = (e) => {
@@ -43,20 +38,13 @@ class ListCard extends Component {
   };
 
   handleSort = (e) => {
-    console.log("On sort func before setState/Sort:", charArr);
     const targetId = e.target.id;
-    // this.setState((state) => {
-    //   console.log('On sort function: ', this.charArr);
-    //   let sortedArr = state.characters.sort(this.compareProps(targetId));
-    //   return { characters: sortedArr };
-    // });
     let sortedArr = this.state.characters.slice().sort(this.compareProps(targetId));
 
     this.setState({ characters: sortedArr });
   };
 
   handleReset = () => {
-    console.log("On Reset: ", charArr);
     this.setState({ characters: charArr });
   };
 
