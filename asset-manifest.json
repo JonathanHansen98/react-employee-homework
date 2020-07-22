@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.33885e43.chunk.js",
-    "main.js.map": "/static/js/main.33885e43.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0d12acee.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0d12acee.js.map",
-    "static/js/2.4bb0050e.chunk.js": "/static/js/2.4bb0050e.chunk.js",
-    "static/js/2.4bb0050e.chunk.js.map": "/static/js/2.4bb0050e.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.eb11ed70aeff11e96beede8cf410a8aa.js": "/precache-manifest.eb11ed70aeff11e96beede8cf410a8aa.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.4bb0050e.chunk.js.LICENSE.txt": "/static/js/2.4bb0050e.chunk.js.LICENSE.txt",
-    "static/media/download.jpg": "/static/media/download.57a3d4b3.jpg"
+    "main.css": "/react-employee-homework/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/react-employee-homework/static/js/main.33885e43.chunk.js",
+    "main.js.map": "/react-employee-homework/static/js/main.33885e43.chunk.js.map",
+    "runtime-main.js": "/react-employee-homework/static/js/runtime-main.d5889238.js",
+    "runtime-main.js.map": "/react-employee-homework/static/js/runtime-main.d5889238.js.map",
+    "static/js/2.4bb0050e.chunk.js": "/react-employee-homework/static/js/2.4bb0050e.chunk.js",
+    "static/js/2.4bb0050e.chunk.js.map": "/react-employee-homework/static/js/2.4bb0050e.chunk.js.map",
+    "index.html": "/react-employee-homework/index.html",
+    "precache-manifest.485709e925ac54e2f1f5504d9c016a19.js": "/react-employee-homework/precache-manifest.485709e925ac54e2f1f5504d9c016a19.js",
+    "service-worker.js": "/react-employee-homework/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/react-employee-homework/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.4bb0050e.chunk.js.LICENSE.txt": "/react-employee-homework/static/js/2.4bb0050e.chunk.js.LICENSE.txt",
+    "static/media/download.jpg": "/react-employee-homework/static/media/download.57a3d4b3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0d12acee.js",
+    "static/js/runtime-main.d5889238.js",
     "static/js/2.4bb0050e.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
     "static/js/main.33885e43.chunk.js"
