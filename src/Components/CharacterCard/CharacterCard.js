@@ -7,14 +7,6 @@ const CharacterCard = ({ name, position, depart, salary }) => {
       <Grid style={{
         borderBottom: '1px solid #ccc'
       }} align="center" justify="center" container>
-        <Grid align="center" item xs>
-          <Box display="flex" height="100%" alignItems="center">
-            <Avatar
-              variant="square"
-              src={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpm1.narvii.com%2F6995%2F8cac9a3bd39487d8e052fef8bf6f3fc2afdaa314r1-1125-873v2_hq.jpg&f=1&nofb=1`}
-            />
-          </Box>
-        </Grid>
         <Grid style={{
           borderLeft: '1px solid #ccc'
         }} item xs>
